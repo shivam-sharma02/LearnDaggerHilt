@@ -1,5 +1,6 @@
 package com.example.daggerhiltpractice.di
 
+import android.app.Application
 import com.example.daggerhiltpractice.data.remote.MyApi
 import com.example.daggerhiltpractice.data.repository.MyRepositoryImpl
 import com.example.daggerhiltpractice.domain.repository.MyRepository
@@ -26,8 +27,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideMyRepository(api: MyApi): MyRepository{
-        return MyRepositoryImpl(api)
+    fun provideMyRepository(api: MyApi, app: Application): MyRepository{
+        return MyRepositoryImpl(api, app)
     }
 
 }
