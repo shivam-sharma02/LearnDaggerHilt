@@ -1,6 +1,7 @@
 package com.example.daggerhiltpractice.di
 
 import com.example.daggerhiltpractice.data.remote.MyApi
+import com.example.daggerhiltpractice.data.repository.MyRepositoryImpl
 import com.example.daggerhiltpractice.domain.repository.MyRepository
 import dagger.Module
 import dagger.Provides
@@ -23,8 +24,10 @@ object AppModule {
             .create(MyApi::class.java)
     }
 
+    @Provides
+    @Singleton
     fun provideMyRepository(api: MyApi): MyRepository{
-
+        return MyRepositoryImpl(api)
     }
 
 }
