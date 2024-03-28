@@ -10,4 +10,5 @@ import javax.inject.Inject
 class MyViewModel @Inject constructor(
     private val myrepository: MyRepositoryImpl
 ): ViewModel() {
+
 }
