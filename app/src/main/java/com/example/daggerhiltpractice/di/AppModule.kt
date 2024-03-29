@@ -9,6 +9,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
+import javax.inject.Named
 import javax.inject.Singleton
 
 
@@ -25,10 +26,25 @@ object AppModule {
             .create(MyApi::class.java)
     }
 
+//    @Provides
+//    @Singleton
+//    fun provideMyRepository(
+//        api: MyApi,
+//        app: Application,
+//        @Named("hello1")string1: String // this is the way to separate two values of same data type
+//    ): MyRepository{
+//        return MyRepositoryImpl(api, app)
+//    }
+
     @Provides
     @Singleton
-    fun provideMyRepository(api: MyApi, app: Application): MyRepository{
-        return MyRepositoryImpl(api, app)
-    }
+    @Named("hello1")
+    fun provideString1() = "string1"
+
+
+    @Provides
+    @Singleton
+    @Named("hello2")
+    fun provideString2() = "string2"
 
 }
