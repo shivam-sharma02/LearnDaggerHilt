@@ -11,4 +11,9 @@ import javax.inject.Inject
 class MyViewModel @Inject constructor(
     private val myrepository: Lazy<MyRepositoryImpl>
 ): ViewModel() {
+
+    init {
+        myrepository.get()
+    }
+
 }
