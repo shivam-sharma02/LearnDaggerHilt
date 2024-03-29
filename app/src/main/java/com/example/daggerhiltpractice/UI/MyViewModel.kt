@@ -9,6 +9,4 @@ import javax.inject.Inject
 @HiltViewModel
 class MyViewModel @Inject constructor(
     private val myrepository: MyRepositoryImpl
-): ViewModel() {
-
-}
+): ViewModel()
